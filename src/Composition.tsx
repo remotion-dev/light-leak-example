@@ -1,6 +1,8 @@
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { Img, staticFile } from "remotion";
-import { fade } from "@remotion/transitions/fade";
+import { lightLeak } from "./presentation";
+
+const DURATION = 80;
 
 export const MyComposition = () => {
   return (
@@ -16,9 +18,11 @@ export const MyComposition = () => {
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         timing={linearTiming({
-          durationInFrames: 40,
+          durationInFrames: DURATION,
         })}
-        presentation={fade()}
+        presentation={lightLeak({
+          presentationDuration: DURATION,
+        })}
       />
       <TransitionSeries.Sequence durationInFrames={100}>
         <Img
